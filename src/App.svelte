@@ -6,7 +6,7 @@
 	// import Popup from './components/Popup.svelte'
 	// import Card from './components/Card.svelte'
 	import NameList from './components/NameList.svelte'
-
+	import ChildStyles from './components/ChildStyles.svelte';
 	// let showPopup = false
 	// const userName = 'Steerpike'
 
@@ -114,11 +114,14 @@
 </script>
 
 <main>
-	<NameList>
+	<h3>App component global Style</h3>
+	<h4>App component text</h4>
+	<ChildStyles />
+	<!-- <NameList>
 		<h3 slot="author" let:first let:last> 
 			{first} {last}
 		</h3>
-	</NameList>
+	</NameList> -->
 
 	<!-- <Card >Card content</Card>
 	<Card>
@@ -270,6 +273,13 @@
 	</form> -->
 </main>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 <style>
+	:global(h3) {
+		color: blue;
+	}
+
+	h4 {
+		color : orange;
+	}
 	/* .underline {
 		text-decoration: underline;
 	}
