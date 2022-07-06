@@ -27,22 +27,60 @@
 		count += stepSize
 	} 
 
-	const  formValues = {
-		name : '',
-		profileSummary : '',
-		country : '',
-		jobLocation : [],
-		remoteWork : false,
-		skillSet : [],
-		yearsOfExperience : '',
-	}
+	// const  formValues = {
+	// 	name : '',
+	// 	profileSummary : '',
+	// 	country : '',
+	// 	jobLocation : [],
+	// 	remoteWork : false,
+	// 	skillSet : [],
+	// 	yearsOfExperience : '',
+	// }
 
-	const submitForm =(e) => 
-		console.log(formValues)
+	// const submitForm =(e) => 
+	// 	console.log(formValues)
 	
+
+ 	let firstName = 'Mervyn'
+	let lastName = 'Peake'
+	$: fullName = `${firstName} ${lastName}`
+
+
+	let items = [
+		{
+			id : 1 ,
+			title : 'TV',
+			price : 100,
+		} ,
+		{
+			id : 2,
+			title : 'Phone',
+			price : 200,
+		},
+		{
+			id : 3,
+			title : 'Laptop', 
+			price : 300,
+		}
+	]
+
+	$:total  = items.reduce((total , curItem) => (total = total + curItem.price) , 0)
 </script>
 
 <main>
+
+	<!-- When working with arrays or objects direct mutation will not cause a rerender -->
+	<button on:click={() => {
+		firstName = 'Ursula'
+		lastName = 'LeGuin'
+	}} >Change name</button>
+	<h2>{firstName} {lastName}</h2>
+	<h2>{fullName}</h2>
+
+	<button on:click={() => (items = [...items,{id : 4, title : 'Keyboard' , price : 50} ] )}>Add item</button>
+	<h2>
+		Total - {total}
+	</h2>
 	<!-- <h2 class="underline">Underlined Text</h2>
 	<h2 class={status}>Status</h2>
 	<h2 class:promoted >Movie Title</h2> -->
@@ -70,7 +108,7 @@
 	<!-- <button on:click={() => (count = count + 1)}>Count {count}</button> -->
 	<button on:click={(e) =>  handleClick(e,5)}>Count {count}</button>
 	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button>
-	<div>
+	<!-- <div>
 		<pre>
 			{JSON.stringify(formValues , null , 2)}
 		</pre>
@@ -129,7 +167,7 @@
 		<div>
 			<button type="submit">Submit</button>
 		</div>
-	</form>
+	</form> -->
 </main>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 <style>
 	.underline {
