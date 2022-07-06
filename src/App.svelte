@@ -44,7 +44,21 @@
  	let firstName = 'Mervyn'
 	let lastName = 'Peake'
 	$: fullName = `${firstName} ${lastName}`
+	$: {
+		const greet = `Fullname is ${firstName} ${lastName}`
+		console.log(greet)
+	}
 
+	let volume = 0
+	$: {
+		if (volume < 0) {
+			alert('can\'t go lower than 0')
+			volume = 0
+		} else if (volume > 20) {
+			alert('can\'t go higher than 20')
+			volume = 20
+		}
+	}
 
 	let items = [
 		{
@@ -68,7 +82,13 @@
 </script>
 
 <main>
-
+	<h2>Current volume {volume}</h2>
+	<button on:click={() => {
+		volume = volume +1
+	}} >Increase volume</button>
+	<button on:click={() => {
+		volume = volume -1
+	}}>Decrease volume</button>
 	<!-- When working with arrays or objects direct mutation will not cause a rerender -->
 	<button on:click={() => {
 		firstName = 'Ursula'
