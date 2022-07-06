@@ -20,6 +20,12 @@
 		{first : 'Edward', last : 'Dunsanny'},
 		{first : 'Ursula' , last : 'LeGuin'}
 	]
+	//Event Handling
+	let count = 0
+	let handleClick = (e,stepSize) => {
+		console.log(e);
+		count += stepSize
+	} 
 </script>
 
 <main>
@@ -40,12 +46,16 @@
 		{:else}
 		<h2>Not a number</h2>
 	{/if}
-	{#each names as name, index }
+	{#each names as name, index (name)}
 		<h2>{index + 1} {name}</h2>
 	{/each}
-	{#each fullNames as name , index }
+	{#each fullNames as name , index (name.first)}
 	<h2>{index +1} {name.first} {name.last}</h2>
 	{/each}
+	<!-- Inline f definition for simple handling -->
+	<!-- <button on:click={() => (count = count + 1)}>Count {count}</button> -->
+	<button on:click={(e) =>  handleClick(e,5)}>Count {count}</button>
+	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button>
 </main>
 
 <style>
