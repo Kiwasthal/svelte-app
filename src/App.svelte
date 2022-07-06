@@ -4,6 +4,7 @@
 	import Button from './components/Button.svelte'
 	import ComponentC from './components/ComponentC.svelte'
 	import Popup from './components/Popup.svelte'
+	import Card from './components/Card.svelte'
 
 	let showPopup = false
 	const userName = 'Steerpike'
@@ -112,6 +113,13 @@
 </script>
 
 <main>
+	<Card >Card content</Card>
+	<Card>
+		<h2>
+			Card content
+		</h2>
+	</Card>
+	<Card/>
 	<Outer on:greet={handleGreet} />
 	<Button on:click={() => {
 		alert('Clicked')
