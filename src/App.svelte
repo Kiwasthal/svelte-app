@@ -11,7 +11,15 @@
 	//isPromoted = true
 
 	//Conditional Rendering
-	const num = 'as'
+	const num = 'Text'
+
+	//List rendering
+	const names = ['Sepulchrave' , 'Prunesquellor', 'Fuchsia']
+	const fullNames =[
+		{first : 'Mervyn' , last: 'Peake'},
+		{first : 'Edward', last : 'Dunsanny'},
+		{first : 'Ursula' , last : 'LeGuin'}
+	]
 </script>
 
 <main>
@@ -32,6 +40,12 @@
 		{:else}
 		<h2>Not a number</h2>
 	{/if}
+	{#each names as name, index }
+		<h2>{index + 1} {name}</h2>
+	{/each}
+	{#each fullNames as name , index }
+	<h2>{index +1} {name.first} {name.last}</h2>
+	{/each}
 </main>
 
 <style>
