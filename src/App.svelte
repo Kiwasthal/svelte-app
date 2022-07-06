@@ -3,11 +3,15 @@
 	const github = '<b>Kiwasthal</b>'
 	//When using the @html prefix you should only render
 	//The content that you trust
+	const headingId = 'heading'
+	const disabled = false
 </script>
 
 <main>
 	<h1>Hello {name}</h1>
 	<div>{@html github}</div>
+	<h2 id={headingId}>This is a heading</h2>
+	<button {disabled}>Bind</button>
 </main>
 
 <style>
