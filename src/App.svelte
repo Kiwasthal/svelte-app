@@ -1,8 +1,18 @@
 <script>
 	import {setContext} from 'svelte'
 	import ComponentC from './components/ComponentC.svelte'
+	import Popup from './components/Popup.svelte'
+
+	let showPopup = false
 	const userName = 'Steerpike'
-	//It's good practice not to use string values as the context key but rather an object because different component libraries might accidentally use the same key, while using an object literal the keys will not conflict under any circumstances since object's have referential equality
+
+	let closePopup = (e) => {
+		showPopup = false
+		console.log(e.detail);
+	}
+
+	//It's good practice not to use string values as the context key but rather an object because different component libraries might accidentally use the same key, while using an object literal the keys will not conflict under any circumstances since object's have referential equality.
+	
 	setContext('username-context', userName)
 	// import Greet from "./components/greet.svelte";
 	// const name = 'Steerpike'
@@ -97,6 +107,13 @@
 </script>
 
 <main>
+	<button on:click={
+		() => showPopup = true
+	}>Show Popup</button>
+	{#if showPopup}
+		<Popup  on:close={ closePopup} />	
+	{/if}
+
 	<h2>App component username - {userName}</h2>
 	<ComponentC />
 	<!-- <Greet name='Steerpike' title='Main' />
@@ -237,12 +254,6 @@
 		margin: 0 auto;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
 
 	/* input + label {
 		display: inline-flex;
