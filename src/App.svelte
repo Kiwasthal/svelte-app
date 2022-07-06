@@ -1,5 +1,7 @@
 <script>
 	import {setContext} from 'svelte'
+	import Outer from './components/Outer.svelte';
+	import Button from './components/Button.svelte'
 	import ComponentC from './components/ComponentC.svelte'
 	import Popup from './components/Popup.svelte'
 
@@ -10,6 +12,9 @@
 		showPopup = false
 		console.log(e.detail);
 	}
+
+	let handleGreet = (e) => alert(e.detail)
+	
 
 	//It's good practice not to use string values as the context key but rather an object because different component libraries might accidentally use the same key, while using an object literal the keys will not conflict under any circumstances since object's have referential equality.
 	
@@ -107,6 +112,10 @@
 </script>
 
 <main>
+	<Outer on:greet={handleGreet} />
+	<Button on:click={() => {
+		alert('Clicked')
+	}} />
 	<button on:click={
 		() => showPopup = true
 	}>Show Popup</button>
@@ -253,7 +262,13 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
-
+/* 
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	} */
 
 	/* input + label {
 		display: inline-flex;

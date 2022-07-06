@@ -1,0 +1,15 @@
+<button on:click>Click</button>
+
+<style>
+  button {
+    background-color: #4caf50;
+    border: none;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+</style>
+
