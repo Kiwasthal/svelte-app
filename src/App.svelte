@@ -1,31 +1,33 @@
 <script>
-	const name = 'Steerpike'
-	const github = '<b>Kiwasthal</b>'
-	//When using the @html prefix you should only render
-	//The content that you trust
-	const headingId = 'heading'
-	const disabled = false
-	const status = 'success'
-	const promoted = true
-	//Conditional binding in case variable and class name do not align
-	//isPromoted = true
+	import Greet from "./components/greet.svelte";
 
-	//Conditional Rendering
-	const num = 'Text'
+	// const name = 'Steerpike'
+	// const github = '<b>Kiwasthal</b>'
+	// //When using the @html prefix you should only render
+	// //The content that you trust
+	// const headingId = 'heading'
+	// const disabled = false
+	// const status = 'success'
+	// const promoted = true
+	// //Conditional binding in case variable and class name do not align
+	// //isPromoted = true
 
-	//List rendering
-	const names = ['Sepulchrave' , 'Prunesquellor', 'Fuchsia']
-	const fullNames =[
-		{first : 'Mervyn' , last: 'Peake'},
-		{first : 'Edward', last : 'Dunsanny'},
-		{first : 'Ursula' , last : 'LeGuin'}
-	]
-	//Event Handling
-	let count = 0
-	let handleClick = (e,stepSize) => {
-		console.log(e);
-		count += stepSize
-	} 
+	// //Conditional Rendering
+	// const num = 'Text'
+
+	// //List rendering
+	// const names = ['Sepulchrave' , 'Prunesquellor', 'Fuchsia']
+	// const fullNames =[
+	// 	{first : 'Mervyn' , last: 'Peake'},
+	// 	{first : 'Edward', last : 'Dunsanny'},
+	// 	{first : 'Ursula' , last : 'LeGuin'}
+	// ]
+	// //Event Handling
+	// let count = 0
+	// let handleClick = (e,stepSize) => {
+	// 	console.log(e);
+	// 	count += stepSize
+	// } 
 
 	// const  formValues = {
 	// 	name : '',
@@ -41,56 +43,61 @@
 	// 	console.log(formValues)
 	
 
- 	let firstName = 'Mervyn'
-	let lastName = 'Peake'
-	$: fullName = `${firstName} ${lastName}`
-	$: {
-		const greet = `Fullname is ${firstName} ${lastName}`
-		console.log(greet)
-	}
+ 	// let firstName = 'Mervyn'
+	// let lastName = 'Peake'
+	// $: fullName = `${firstName} ${lastName}`
+	// $: {
+	// 	const greet = `Fullname is ${firstName} ${lastName}`
+	// 	console.log(greet)
+	// }
 
-	let volume = 0
-	$: {
-		if (volume < 0) {
-			alert('can\'t go lower than 0')
-			volume = 0
-		} else if (volume > 20) {
-			alert('can\'t go higher than 20')
-			volume = 20
-		}
-	}
+	// let volume = 0
+	// $: {
+	// 	if (volume < 0) {
+	// 		alert('can\'t go lower than 0')
+	// 		volume = 0
+	// 	} else if (volume > 20) {
+	// 		alert('can\'t go higher than 20')
+	// 		volume = 20
+	// 	}
+	// }
 
-	let items = [
-		{
-			id : 1 ,
-			title : 'TV',
-			price : 100,
-		} ,
-		{
-			id : 2,
-			title : 'Phone',
-			price : 200,
-		},
-		{
-			id : 3,
-			title : 'Laptop', 
-			price : 300,
-		}
-	]
+	// let items = [
+	// 	{
+	// 		id : 1 ,
+	// 		title : 'TV',
+	// 		price : 100,
+	// 	} ,
+	// 	{
+	// 		id : 2,
+	// 		title : 'Phone',
+	// 		price : 200,
+	// 	},
+	// 	{
+	// 		id : 3,
+	// 		title : 'Laptop', 
+	// 		price : 300,
+	// 	}
+	// ]
 
-	$:total  = items.reduce((total , curItem) => (total = total + curItem.price) , 0)
+	// $:total  = items.reduce((total , curItem) => (total = total + curItem.price) , 0)
+
+
 </script>
 
 <main>
-	<h2>Current volume {volume}</h2>
+	
+	<Greet/>
+
+	<!-- <h2>Current volume {volume}</h2>
 	<button on:click={() => {
 		volume = volume +1
 	}} >Increase volume</button>
 	<button on:click={() => {
 		volume = volume -1
 	}}>Decrease volume</button>
-	<!-- When working with arrays or objects direct mutation will not cause a rerender -->
-	<button on:click={() => {
+	When working with arrays or objects direct mutation will not cause a rerender -->
+	<!-- <button on:click={() => {
 		firstName = 'Ursula'
 		lastName = 'LeGuin'
 	}} >Change name</button>
@@ -100,15 +107,15 @@
 	<button on:click={() => (items = [...items,{id : 4, title : 'Keyboard' , price : 50} ] )}>Add item</button>
 	<h2>
 		Total - {total}
-	</h2>
+	</h2> --> 
 	<!-- <h2 class="underline">Underlined Text</h2>
 	<h2 class={status}>Status</h2>
 	<h2 class:promoted >Movie Title</h2> -->
 	<!-- <h2 class:promoted={isPromoted}>Movie tag</h2> -->
-	<h1>Hello {name}</h1>
+	<!-- <h1>Hello {name}</h1>
 	<div>{@html github}</div>
 	<h2 id={headingId}>This is a heading</h2>
-	<button {disabled}>Bind</button>
+	<button {disabled}>Bind</button> -->
 	<!-- {#if num===0}
 		<h2>The number is zero</h2>
 		{:else if num < 0}
@@ -126,8 +133,8 @@
 	{/each} -->
 	<!-- Inline f definition for simple handling -->
 	<!-- <button on:click={() => (count = count + 1)}>Count {count}</button> -->
-	<button on:click={(e) =>  handleClick(e,5)}>Count {count}</button>
-	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button>
+	<!-- <button on:click={(e) =>  handleClick(e,5)}>Count {count}</button>
+	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button> -->
 	<!-- <div>
 		<pre>
 			{JSON.stringify(formValues , null , 2)}
@@ -190,7 +197,7 @@
 	</form> -->
 </main>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 <style>
-	.underline {
+	/* .underline {
 		text-decoration: underline;
 	}
 
@@ -204,10 +211,10 @@
 
 	.promoted {
 		font-style: italic;
-	}
+	} */
 
 	main {
-		/* text-align: center; */
+		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
@@ -220,9 +227,9 @@
 		font-weight: 100;
 	}
 
-	input + label {
+	/* input + label {
 		display: inline-flex;
-	}
+	} */
 
 	@media (min-width: 640px) {
 		main {
