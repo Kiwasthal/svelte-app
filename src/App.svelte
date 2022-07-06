@@ -7,16 +7,31 @@
 	const disabled = false
 	const status = 'success'
 	const promoted = true
+	//Conditional binding in case variable and class name do not align
+	//isPromoted = true
+
+	//Conditional Rendering
+	const num = 'as'
 </script>
 
 <main>
 	<h2 class="underline">Underlined Text</h2>
 	<h2 class={status}>Status</h2>
 	<h2 class:promoted >Movie Title</h2>
+	<!-- <h2 class:promoted={isPromoted}>Movie tag</h2> -->
 	<h1>Hello {name}</h1>
 	<div>{@html github}</div>
 	<h2 id={headingId}>This is a heading</h2>
 	<button {disabled}>Bind</button>
+	{#if num===0}
+		<h2>The number is zero</h2>
+		{:else if num < 0}
+		<h2>The number is negative</h2>
+		{:else if num > 0}
+		<h2>The number is positive</h2>
+		{:else}
+		<h2>Not a number</h2>
+	{/if}
 </main>
 
 <style>
