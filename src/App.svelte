@@ -1,9 +1,13 @@
 <script>
 	const name = 'Steerpike'
+	const github = '<b>Kiwasthal</b>'
+	//When using the @html prefix you should only render
+	//The content that you trust
 </script>
 
 <main>
 	<h1>Hello {name}</h1>
+	<div>{@html github}</div>
 </main>
 
 <style>
