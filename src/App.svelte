@@ -1,25 +1,26 @@
 <script>
-	import {setContext} from 'svelte'
-	import Outer from './components/Outer.svelte';
-	import Button from './components/Button.svelte'
-	import ComponentC from './components/ComponentC.svelte'
-	import Popup from './components/Popup.svelte'
-	import Card from './components/Card.svelte'
+	// import {setContext} from 'svelte'
+	// import Outer from './components/Outer.svelte';
+	// import Button from './components/Button.svelte'
+	// import ComponentC from './components/ComponentC.svelte'
+	// import Popup from './components/Popup.svelte'
+	// import Card from './components/Card.svelte'
+	import NameList from './components/NameList.svelte'
 
-	let showPopup = false
-	const userName = 'Steerpike'
+	// let showPopup = false
+	// const userName = 'Steerpike'
 
-	let closePopup = (e) => {
-		showPopup = false
-		console.log(e.detail);
-	}
+	// let closePopup = (e) => {
+	// 	showPopup = false
+	// 	console.log(e.detail);
+	// }
 
-	let handleGreet = (e) => alert(e.detail)
+	// let handleGreet = (e) => alert(e.detail)
 	
 
 	//It's good practice not to use string values as the context key but rather an object because different component libraries might accidentally use the same key, while using an object literal the keys will not conflict under any circumstances since object's have referential equality.
 	
-	setContext('username-context', userName)
+	// setContext('username-context', userName)
 	// import Greet from "./components/greet.svelte";
 	// const name = 'Steerpike'
 	// const github = 'Kiwasthal'
@@ -113,6 +114,12 @@
 </script>
 
 <main>
+	<NameList>
+		<h3 slot="author" let:first let:last> 
+			{first} {last}
+		</h3>
+	</NameList>
+
 	<!-- <Card >Card content</Card>
 	<Card>
 		<h2>
@@ -121,7 +128,7 @@
 	</Card>
 	<Card/> -->
 
-	<Card>
+	<!-- <Card>
 		<div slot="header">
 			<h3>Header</h3>
 		</div>
@@ -147,7 +154,7 @@
 	{/if}
 
 	<h2>App component username - {userName}</h2>
-	<ComponentC />
+	<ComponentC /> -->
 	<!-- <Greet name='Steerpike' title='Main' />
 	<Greet name='Titus' title='Heir'/>
 	<Greet name='Slugg' title='Nanny'/>
