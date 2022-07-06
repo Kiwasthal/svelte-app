@@ -5,3 +5,7 @@ const app = new App({
 });
 
 export default app;
+
+//Svelte follows a components based architecture similar to React
+
+//This lets you break down your application into small encapsulated parts which can then be composed to make more complex user interfaces

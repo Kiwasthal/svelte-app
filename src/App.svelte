@@ -1,5 +1,11 @@
 <script>
 	import Greet from "./components/greet.svelte";
+	const name = 'Steerpike'
+	const github = 'Kiwasthal'
+	const obj = {
+		name  : 'Fuchsia',
+		title : 'Princess'
+	}
 
 	// const name = 'Steerpike'
 	// const github = '<b>Kiwasthal</b>'
@@ -87,7 +93,12 @@
 
 <main>
 	
-	<Greet/>
+	<Greet name='Steerpike' title='Main' />
+	<Greet name='Titus' title='Heir'/>
+	<Greet name='Slugg' title='Nanny'/>
+	<Greet {name} />
+	<Greet {...obj} />
+
 
 	<!-- <h2>Current volume {volume}</h2>
 	<button on:click={() => {
