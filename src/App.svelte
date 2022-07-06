@@ -113,13 +113,28 @@
 </script>
 
 <main>
-	<Card >Card content</Card>
+	<!-- <Card >Card content</Card>
 	<Card>
 		<h2>
 			Card content
 		</h2>
 	</Card>
-	<Card/>
+	<Card/> -->
+
+	<Card>
+		<div slot="header">
+			<h3>Header</h3>
+		</div>
+	
+		<div slot="content">
+			<p>Text content</p>
+		</div>
+		
+		<div slot="footer">
+			<button>View details</button>
+		</div>
+	</Card>
+
 	<Outer on:greet={handleGreet} />
 	<Button on:click={() => {
 		alert('Clicked')

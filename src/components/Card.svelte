@@ -1,5 +1,17 @@
 <div class="card">
-  <slot>Default Content</slot>
+  <div class="card-header">
+    <slot name="header"></slot>
+  </div>
+
+  <div class="card-content">
+    <slot name="content"></slot>
+  </div>
+  {#if $$slots.footer}
+  <hr/>
+  <div class="card-footer">
+    <slot name="footer"></slot>
+  </div>
+  {/if}
 </div>
 
 <!-- Props allow you to re-use compoenents by passing in different data 
