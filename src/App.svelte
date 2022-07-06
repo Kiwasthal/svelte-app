@@ -26,6 +26,13 @@
 		console.log(e);
 		count += stepSize
 	} 
+
+	const  fromValues = {
+		name : '',
+		profileSummary : '',
+		country : '',
+		jobLocation : [],
+	}
 </script>
 
 <main>
@@ -37,7 +44,7 @@
 	<div>{@html github}</div>
 	<h2 id={headingId}>This is a heading</h2>
 	<button {disabled}>Bind</button>
-	{#if num===0}
+	<!-- {#if num===0}
 		<h2>The number is zero</h2>
 		{:else if num < 0}
 		<h2>The number is negative</h2>
@@ -51,13 +58,46 @@
 	{/each}
 	{#each fullNames as name , index (name.first)}
 	<h2>{index +1} {name.first} {name.last}</h2>
-	{/each}
+	{/each} -->
 	<!-- Inline f definition for simple handling -->
 	<!-- <button on:click={() => (count = count + 1)}>Count {count}</button> -->
 	<button on:click={(e) =>  handleClick(e,5)}>Count {count}</button>
 	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button>
-</main>
-
+	<div>
+		<pre>
+			{JSON.stringify(fromValues , null , 2)}
+		</pre>
+	</div>
+	<form>
+		<div>
+			<label for="name">Name</label>
+			<input type="text"  id="name" bind:value={fromValues.name} />
+		</div>
+		<div>
+			<label for="profile">Profile Summary</label>
+			<textarea  id="profile" bind:value={fromValues.profileSummary} />
+		</div>
+		<div>
+			<label for="country">Country</label>
+			<select id="country" bind:value={fromValues.country}>
+				<option value="">Select a country</option>
+				<option value="india">India</option>
+				<option value="vietnam">Vietnam</option>
+				<option value="singapore">Singapore</option>
+			</select>
+		</div>
+		<div>
+			<label for="job-location">Job Location</label>
+			<select id="job-location" bind:value={fromValues.jobLocation} multiple>
+				<option value="">Select a country</option>
+				<option value="india">India</option>
+				<option value="vietnam">Vietnam</option>
+				<option value="singapore">Singapore</option>
+			</select>
+			
+		</div>
+	</form>
+</main>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 <style>
 	.underline {
 		text-decoration: underline;
@@ -76,7 +116,7 @@
 	}
 
 	main {
-		text-align: center;
+		/* text-align: center; */
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
@@ -87,6 +127,10 @@
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+	}
+
+	input + label {
+		display: inline-flex;
 	}
 
 	@media (min-width: 640px) {
