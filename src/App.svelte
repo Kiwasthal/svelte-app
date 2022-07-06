@@ -1,11 +1,16 @@
 <script>
-	import Greet from "./components/greet.svelte";
-	const name = 'Steerpike'
-	const github = 'Kiwasthal'
-	const obj = {
-		name  : 'Fuchsia',
-		title : 'Princess'
-	}
+	import {setContext} from 'svelte'
+	import ComponentC from './components/ComponentC.svelte'
+	const userName = 'Steerpike'
+	//It's good practice not to use string values as the context key but rather an object because different component libraries might accidentally use the same key, while using an object literal the keys will not conflict under any circumstances since object's have referential equality
+	setContext('username-context', userName)
+	// import Greet from "./components/greet.svelte";
+	// const name = 'Steerpike'
+	// const github = 'Kiwasthal'
+	// const obj = {
+	// 	name  : 'Fuchsia',
+	// 	title : 'Princess'
+	// }
 
 	// const name = 'Steerpike'
 	// const github = '<b>Kiwasthal</b>'
@@ -92,12 +97,13 @@
 </script>
 
 <main>
-	
-	<Greet name='Steerpike' title='Main' />
+	<h2>App component username - {userName}</h2>
+	<ComponentC />
+	<!-- <Greet name='Steerpike' title='Main' />
 	<Greet name='Titus' title='Heir'/>
 	<Greet name='Slugg' title='Nanny'/>
 	<Greet {name} />
-	<Greet {...obj} />
+	<Greet {...obj} /> -->
 
 
 	<!-- <h2>Current volume {volume}</h2>
