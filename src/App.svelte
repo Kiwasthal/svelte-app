@@ -27,18 +27,25 @@
 		count += stepSize
 	} 
 
-	const  fromValues = {
+	const  formValues = {
 		name : '',
 		profileSummary : '',
 		country : '',
 		jobLocation : [],
+		remoteWork : false,
+		skillSet : [],
+		yearsOfExperience : '',
 	}
+
+	const submitForm =(e) => 
+		console.log(formValues)
+	
 </script>
 
 <main>
-	<h2 class="underline">Underlined Text</h2>
+	<!-- <h2 class="underline">Underlined Text</h2>
 	<h2 class={status}>Status</h2>
-	<h2 class:promoted >Movie Title</h2>
+	<h2 class:promoted >Movie Title</h2> -->
 	<!-- <h2 class:promoted={isPromoted}>Movie tag</h2> -->
 	<h1>Hello {name}</h1>
 	<div>{@html github}</div>
@@ -65,21 +72,21 @@
 	<button on:click={(e) =>  handleClick(e,10)}>Count {count}</button>
 	<div>
 		<pre>
-			{JSON.stringify(fromValues , null , 2)}
+			{JSON.stringify(formValues , null , 2)}
 		</pre>
 	</div>
-	<form>
+	<form on:submit|preventDefault={submitForm}>
 		<div>
 			<label for="name">Name</label>
-			<input type="text"  id="name" bind:value={fromValues.name} />
+			<input type="text"  id="name" bind:value={formValues.name} />
 		</div>
 		<div>
 			<label for="profile">Profile Summary</label>
-			<textarea  id="profile" bind:value={fromValues.profileSummary} />
+			<textarea  id="profile" bind:value={formValues.profileSummary} />
 		</div>
 		<div>
 			<label for="country">Country</label>
-			<select id="country" bind:value={fromValues.country}>
+			<select id="country" bind:value={formValues.country}>
 				<option value="">Select a country</option>
 				<option value="india">India</option>
 				<option value="vietnam">Vietnam</option>
@@ -88,13 +95,39 @@
 		</div>
 		<div>
 			<label for="job-location">Job Location</label>
-			<select id="job-location" bind:value={fromValues.jobLocation} multiple>
+			<select id="job-location" bind:value={formValues.jobLocation} multiple>
 				<option value="">Select a country</option>
 				<option value="india">India</option>
 				<option value="vietnam">Vietnam</option>
 				<option value="singapore">Singapore</option>
-			</select>
-			
+			</select>	
+		</div>
+		<div>
+			<input type="checkbox" id="remoteWork"  bind:checked={formValues.remoteWork}/>
+			<label for="remoteWork">Open for remote work?</label>
+		</div>
+		<div>
+			<label>Skill set</label>
+			<input type="checkbox" id="html" value="html" bind:group={formValues.skillSet}/>
+			<label for="html">HTML</label>
+			<input type="checkbox" id="css" value="css" bind:group={formValues.skillSet}/>
+			<label for="css">CSS</label>
+			<input type="checkbox" id="javascript" value="javascript" bind:group={formValues.skillSet}/>
+			<label for="javascript">JavaScript</label>
+		</div>
+		<div>
+			<label>Years of Experience</label>
+			<input type="radio" id="0-2" value="0-2" bind:group={formValues.yearsOfExperience}/>
+			<label for="0-2">0-2</label>
+			<input type="radio" id="3-5" value="3-5" bind:group={formValues.yearsOfExperience}/>
+			<label for="3-5">3-5</label>
+			<input type="radio" id="6-10" value="6-10" bind:group={formValues.yearsOfExperience}/>
+			<label for="6-10">6-10</label>
+			<input type="radio" id="10+" value="10+" bind:group={formValues.yearsOfExperience}/>
+			<label for="10+">10+</label>
+		</div>
+		<div>
+			<button type="submit">Submit</button>
 		</div>
 	</form>
 </main>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
