@@ -14,5 +14,5 @@
   <p>{post.body}</p>
   <hr />
 {:else}
-  <p>Loading...</p>
+  <p on>Loading...</p>
 {/each}

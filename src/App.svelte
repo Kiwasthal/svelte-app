@@ -9,11 +9,15 @@
   // import ChildStyles from './components/ChildStyles.svelte';
   // import PostList from './components/PostList.svelte';
   //  import AutoFocus from './components/AutoFocus.svelte'
-  import { onMount } from 'svelte';
-  import TabA from './components/TabA.svelte';
-  import TabB from './components/TabB.svelte';
-  import TabC from './components/TabC.svelte';
-  import Counter, { getTotalCount } from './components/Counter.svelte';
+  // import { onMount } from 'svelte';
+  // import TabA from './components/TabA.svelte';
+  // import TabB from './components/TabB.svelte';
+  // import TabC from './components/TabC.svelte';
+  // import Counter, { getTotalCount } from './components/Counter.svelte';
+  import Display from './components/Display.svelte';
+  import Increment from './components/Increment.svelte';
+  import Decrement from './components/Decrement.svelte';
+  import Reset from './components/Reset.svelte';
   // let showPopup = false
   // const userName = 'Steerpike'
 
@@ -114,13 +118,15 @@
   // ]
 
   // $:total  = items.reduce((total , curItem) => (total = total + curItem.price) , 0)
-  let activeTab = TabA;
+  // let activeTab = TabA;
 </script>
 
-let ttc = 0;
-
 <main>
-  <button on:click={() => (activeTab = TabA)}>Tab A</button>
+  <Display />
+  <Increment />
+  <Decrement />
+  <Reset />
+  <!-- <button on:click={() => (activeTab = TabA)}>Tab A</button>
   <button on:click={() => (activeTab = TabB)}>Tab B</button>
   <button on:click={() => (activeTab = TabC)}>Tab C</button>
 
@@ -132,7 +138,7 @@ let ttc = 0;
   >
   <Counter />
   <Counter />
-  <Counter />
+  <Counter /> -->
   <!-- {#if activeTab === 'TabA'}
     <TabA />
   {/if}
