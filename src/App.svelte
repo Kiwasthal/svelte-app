@@ -9,6 +9,9 @@
   // import ChildStyles from './components/ChildStyles.svelte';
   import PostList from './components/PostList.svelte';
   import AutoFocus from './components/AutoFocus.svelte';
+  import TabA from './components/TabA.svelte';
+  import TabB from './components/TabB.svelte';
+  import TabC from './components/TabC.svelte';
   // let showPopup = false
   // const userName = 'Steerpike'
 
@@ -109,10 +112,26 @@
   // ]
 
   // $:total  = items.reduce((total , curItem) => (total = total + curItem.price) , 0)
+  let activeTab = TabA;
 </script>
 
 <main>
-  <AutoFocus />
+  <button on:click={() => (activeTab = TabA)}>Tab A</button>
+  <button on:click={() => (activeTab = TabB)}>Tab B</button>
+  <button on:click={() => (activeTab = TabC)}>Tab C</button>
+
+  <svelte:component this={activeTab} />
+
+  <!-- {#if activeTab === 'TabA'}
+    <TabA />
+  {/if}
+  {#if activeTab === 'TabB'}
+    <TabB />
+  {/if}
+  {#if activeTab === 'TabC'}
+    <TabC />
+  {/if} -->
+
   <!-- <PostList /> -->
   <!-- <h3>App component global Style</h3>
 	<h4>App component text</h4>
