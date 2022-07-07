@@ -7,11 +7,13 @@
   // import Card from './components/Card.svelte'
   // import NameList from './components/NameList.svelte'
   // import ChildStyles from './components/ChildStyles.svelte';
-  import PostList from './components/PostList.svelte';
-  import AutoFocus from './components/AutoFocus.svelte';
+  // import PostList from './components/PostList.svelte';
+  //  import AutoFocus from './components/AutoFocus.svelte'
+  import { onMount } from 'svelte';
   import TabA from './components/TabA.svelte';
   import TabB from './components/TabB.svelte';
   import TabC from './components/TabC.svelte';
+  import Counter, { getTotalCount } from './components/Counter.svelte';
   // let showPopup = false
   // const userName = 'Steerpike'
 
@@ -115,13 +117,22 @@
   let activeTab = TabA;
 </script>
 
+let ttc = 0;
+
 <main>
   <button on:click={() => (activeTab = TabA)}>Tab A</button>
   <button on:click={() => (activeTab = TabB)}>Tab B</button>
   <button on:click={() => (activeTab = TabC)}>Tab C</button>
 
   <svelte:component this={activeTab} />
-
+  <button
+    on:click={() => {
+      alert(getTotalCount());
+    }}>Get total Count</button
+  >
+  <Counter />
+  <Counter />
+  <Counter />
   <!-- {#if activeTab === 'TabA'}
     <TabA />
   {/if}
