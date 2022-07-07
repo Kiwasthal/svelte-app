@@ -18,6 +18,7 @@
   import Increment from './components/Increment.svelte';
   import Decrement from './components/Decrement.svelte';
   import Reset from './components/Reset.svelte';
+  import Timer from './components/Timer.svelte';
   // let showPopup = false
   // const userName = 'Steerpike'
 
@@ -122,6 +123,7 @@
 </script>
 
 <main>
+  <Timer />
   <Display />
   <Increment />
   <Decrement />
