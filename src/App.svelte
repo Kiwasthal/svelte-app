@@ -8,7 +8,7 @@
   // import NameList from './components/NameList.svelte'
   // import ChildStyles from './components/ChildStyles.svelte';
   import PostList from './components/PostList.svelte';
-
+  import AutoFocus from './components/AutoFocus.svelte';
   // let showPopup = false
   // const userName = 'Steerpike'
 
@@ -112,8 +112,8 @@
 </script>
 
 <main>
-  <PostList />
-  <h1>Hey</h1>
+  <AutoFocus />
+  <!-- <PostList /> -->
   <!-- <h3>App component global Style</h3>
 	<h4>App component text</h4>
 	<ChildStyles /> -->
